@@ -25,4 +25,38 @@ public class vote {
         this.education=education;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public levelEducation getEducation() {
+		return education;
+	}
+
+	public void setEducation(levelEducation education) {
+		this.education = education;
+	}
+	
+	
+
 }
