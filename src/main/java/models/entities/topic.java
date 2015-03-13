@@ -1,5 +1,7 @@
 package models.entities;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ public class topic {
 
 	private String name;
 	private String question;
+	private ArrayList<vote> voteList;
 	
 	public topic(int id, String name, String question) {
 		super();
@@ -46,6 +49,14 @@ public class topic {
 
 	public void setQuestion(String question) {
 		this.question = question;
+	}
+
+	public ArrayList<vote> getVoteList() {
+		return voteList;
+	}
+
+	public void setVoteList(ArrayList<vote> voteList) {
+		this.voteList = voteList;
 	}
 	
 }
