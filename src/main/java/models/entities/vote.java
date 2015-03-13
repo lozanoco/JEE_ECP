@@ -10,7 +10,7 @@ import models.utils.levelEducation;
 public class vote {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 	
 	private String ip;
 	private int score;

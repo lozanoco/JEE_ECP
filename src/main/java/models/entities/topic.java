@@ -9,7 +9,7 @@ public class topic {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 
 	private String name;
 	private String question;

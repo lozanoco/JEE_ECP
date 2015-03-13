@@ -10,7 +10,7 @@ public class vote4topic {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 	
 	private String vote;
 	private String topic;
