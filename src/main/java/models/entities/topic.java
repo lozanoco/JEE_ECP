@@ -2,9 +2,11 @@ package models.entities;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class topic {
@@ -15,6 +17,11 @@ public class topic {
 
 	private String name;
 	private String question;
+	
+	// Relacion unidireccional: 1:0..n
+    // relacion mapeada en una tabla de union
+    // Se aplica cascada
+    @OneToMany(cascade = CascadeType.ALL)
 	private ArrayList<vote> voteList;
 	
 	public topic(int id, String name, String question) {
