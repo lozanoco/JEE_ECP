@@ -19,7 +19,6 @@ public class topic {
 	private String question;
 	
 	// Relacion unidireccional: 1:0..n
-    // relacion mapeada en una tabla de union
     // Se aplica cascada
     @OneToMany(cascade = CascadeType.ALL)
 	private ArrayList<vote> voteList;
