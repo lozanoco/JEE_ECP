@@ -14,7 +14,5 @@ public abstract class DaoFactory {
 
     public abstract VoteDao getUserDao();
 
-    public abstract Vote4topicDao getCategoryDao();
-
     public abstract TopicDao getBoatDao();
 }
