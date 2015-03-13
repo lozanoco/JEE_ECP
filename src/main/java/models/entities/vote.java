@@ -1,4 +1,4 @@
-package entities;
+package models.entities;
 
 public class vote {
 
