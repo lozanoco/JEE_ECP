@@ -1,0 +1,70 @@
+package models.daos.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import org.apache.logging.log4j.LogManager;
+
+import models.daos.DaoFactory;
+import models.daos.TopicDao;
+import models.daos.VoteDao;
+import models.entities.Topic;
+import models.entities.Vote;
+
+
+public class DaoJdbcFactory extends DaoFactory {
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+
+    private static final String URL = "jdbc:mysql://localhost:3306/jee";
+
+    private static final String USER = "root";
+
+    private static final String PASS = "";
+
+    private static final String DROP_TABLE = "DROP TABLE IF EXISTS %s";
+
+    private static Connection connection;
+
+    public static Connection getConnection() {
+        try {
+            if (connection == null || !connection.isValid(0)) {
+                Class.forName(DRIVER);
+                connection = DriverManager.getConnection(URL, USER, PASS);
+            }
+        } catch (ClassNotFoundException e) {
+            LogManager.getLogger(DaoJdbcFactory.class).error(
+                    "Problemas con el driver: " + e.getMessage());
+        } catch (SQLException e) {
+            LogManager.getLogger(DaoJdbcFactory.class).error(
+                    "Problemas con la BD: " + e.getMessage());
+        }
+        return connection;
+    }
+
+    public static void dropAndCreateTables() {
+        try {
+            Statement statement = getConnection().createStatement();
+            statement.executeUpdate(String.format(DROP_TABLE, Topic.TABLE));
+            statement.executeUpdate(String.format(DROP_TABLE, Vote.TABLE));
+            statement.executeUpdate(VoteDaoJdbc.sqlToCreateTable());
+            statement.executeUpdate(TopicDaoJdbc.sqlToCreateTable());
+        } catch (SQLException e) {
+            LogManager.getLogger(DaoJdbcFactory.class).error("Drop tables: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public TopicDao getTopicDao() {
+        return new TopicDaoJdbc();
+    }
+
+    @Override
+    public VoteDao getVoteDao() {
+        return new VoteDaoJdbc();
+    }
+
+
+
+}
