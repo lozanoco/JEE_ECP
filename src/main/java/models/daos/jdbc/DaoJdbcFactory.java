@@ -46,24 +46,24 @@ public class DaoJdbcFactory extends DaoFactory {
     public static void dropAndCreateTables() {
         try {
             Statement statement = getConnection().createStatement();
-            statement.executeUpdate(String.format(DROP_TABLE, Topic.TABLE));
             statement.executeUpdate(String.format(DROP_TABLE, Vote.TABLE));
             statement.executeUpdate(VoteDaoJdbc.sqlToCreateTable());
-            statement.executeUpdate(TopicDaoJdbc.sqlToCreateTable());
         } catch (SQLException e) {
             LogManager.getLogger(DaoJdbcFactory.class).error("Drop tables: " + e.getMessage());
         }
     }
 
-    @Override
-    public TopicDao getTopicDao() {
-        return new TopicDaoJdbc();
-    }
 
     @Override
     public VoteDao getVoteDao() {
         return new VoteDaoJdbc();
     }
+
+	@Override
+	public TopicDao getTopicDao() {
+		// Metodo Dummy NO IMPLEMENTADO
+		return null;
+	}
 
 
 

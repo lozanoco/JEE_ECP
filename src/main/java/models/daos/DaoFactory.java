@@ -1,6 +1,5 @@
 package models.daos;
 
-import models.daos.jdbc.TopicDaoJdbc;
 
 public abstract class DaoFactory {
     public static DaoFactory factory = null;
