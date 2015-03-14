@@ -1,5 +1,7 @@
 package models.daos;
 
+import models.daos.jdbc.TopicDaoJdbc;
+
 public abstract class DaoFactory {
     public static DaoFactory factory = null;
 
@@ -15,4 +17,6 @@ public abstract class DaoFactory {
     public abstract VoteDao getUserDao();
 
     public abstract TopicDao getBoatDao();
+
+
 }

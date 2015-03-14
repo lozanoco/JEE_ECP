@@ -7,7 +7,9 @@ import javax.persistence.Id;
 import models.utils.levelEducation;
 
 @Entity
-public class vote {
+public class Vote {
+	public static final String TABLE = "vote";
+
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -16,9 +18,9 @@ public class vote {
 	private int score;
 	private levelEducation education;
 	
-	public vote(){}
+	public Vote(){}
 	
-	public vote(String ip,int score,levelEducation education){
+	public Vote(String ip,int score,levelEducation education){
 		super();
         this.score = score;
         this.ip = ip;

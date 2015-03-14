@@ -1,7 +1,7 @@
 package models.daos;
 
-import models.entities.topic;
+import models.entities.Topic;
 
-public interface TopicDao extends GenericDao <topic, Integer>{
+public interface TopicDao extends GenericDao <Topic, Integer>{
 
 }

@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class topic {
+public class Topic {
 	
+	public static final String TABLE = "topic";
+
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -21,16 +23,16 @@ public class topic {
 	// Relacion unidireccional: 1:0..n
     // Se aplica cascada
     @OneToMany(cascade = CascadeType.ALL)
-	private ArrayList<vote> voteList;
+	private ArrayList<Vote> voteList;
 	
-	public topic(int id, String name, String question) {
+	public Topic(int id, String name, String question) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.question = question;
 	}
 	
-	public topic(){}
+	public Topic(){}
 	
 
 	public int getId() {
@@ -57,11 +59,11 @@ public class topic {
 		this.question = question;
 	}
 
-	public ArrayList<vote> getVoteList() {
+	public ArrayList<Vote> getVoteList() {
 		return voteList;
 	}
 
-	public void setVoteList(ArrayList<vote> voteList) {
+	public void setVoteList(ArrayList<Vote> voteList) {
 		this.voteList = voteList;
 	}
 	
