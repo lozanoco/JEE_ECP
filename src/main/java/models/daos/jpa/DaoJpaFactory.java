@@ -28,12 +28,12 @@ public class DaoJpaFactory extends DaoFactory {
 
 	@Override
 	public VoteDao getVoteDao() {
-		return new TemaDaoJpa();
+		return new VoteDaoJpa();
 	}
 
 	@Override
 	public TopicDao getTopicDao() {
-		return new VotoDaoJpa();
+		return new TopicDaoJpa();
 	}
 
 
