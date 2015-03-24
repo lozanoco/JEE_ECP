@@ -10,12 +10,16 @@ import models.utils.levelEducation;
 public class Vote {
 	public static final String TABLE = "vote";
 
+	public static final String ID = "ID";
 	@Id
 	@GeneratedValue
 	private Integer id;
 	
+	public static final String IP = "IP";
 	private String ip;
+	public static final String SCORE = "SCORE";
 	private int score;
+	public static final String EDUCATION = "EDUCATION";
 	private levelEducation education;
 	
 	public Vote(){}

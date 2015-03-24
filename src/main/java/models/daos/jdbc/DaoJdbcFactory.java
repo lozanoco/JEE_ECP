@@ -61,7 +61,7 @@ public class DaoJdbcFactory extends DaoFactory {
 
 	@Override
 	public TopicDao getTopicDao() {
-		// Metodo Dummy NO IMPLEMENTADO
+		// Metodo Dummy NO IMPLEMENTADO (para el extends)
 		return null;
 	}
 
