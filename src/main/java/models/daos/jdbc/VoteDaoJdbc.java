@@ -2,17 +2,19 @@ package models.daos.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import models.daos.VoteDao;
-import models.entities.Topic;
 import models.entities.Vote;
 import models.utils.levelEducation;
 
 public class VoteDaoJdbc extends GenericDaoJdbc<Vote, Integer> implements VoteDao {
+	
+	private Logger log = LogManager.getLogger(VoteDaoJdbc.class);
 
 	private Vote create(ResultSet resultSet) {
 		Vote vote;
@@ -46,22 +48,27 @@ public class VoteDaoJdbc extends GenericDaoJdbc<Vote, Integer> implements VoteDa
 	@Override
 	public void update(Vote vote) {
 		this.updateSql(String.format(SQL_UPDATE, Vote.IP, vote.getIp(), Vote.SCORE,vote.getScore(),
-                Vote.EDUCATION,vote.getEducationString(), vote.getId()));		
+				Vote.EDUCATION,vote.getEducationString(), vote.getId()));		
 	}
 
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		
+		this.updateSql(String.format(SQL_DELETE_ID, Vote.TABLE, id));
 	}
 
 
 	@Override
 	public List<Vote> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Vote> list = new ArrayList<Vote>();
+		ResultSet resultSet = this.query(String.format(SQL_SELECT_ALL, Vote.TABLE));
+		Vote vote = this.create(resultSet);
+		while (vote != null) {
+			list.add(vote);
+			vote = this.create(resultSet);
+		}
+		return list;
 	}
 
-	
+
 }
