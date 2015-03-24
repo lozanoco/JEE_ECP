@@ -47,7 +47,7 @@ public class DaoJdbcFactory extends DaoFactory {
         try {
             Statement statement = getConnection().createStatement();
             statement.executeUpdate(String.format(DROP_TABLE, Vote.TABLE));
-            statement.executeUpdate(VoteDaoJdbc.sqlToCreateTable());
+            statement.executeUpdate(String.format(DROP_TABLE, Topic.TABLE));
         } catch (SQLException e) {
             LogManager.getLogger(DaoJdbcFactory.class).error("Drop tables: " + e.getMessage());
         }
