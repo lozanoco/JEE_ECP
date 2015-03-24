@@ -13,7 +13,7 @@ import models.daos.VoteDao;
 
 
 public class DaoJpaFactory extends DaoFactory {
-    private static final String PERSISTENCE_UNIT = "tictactoe";
+    private static final String PERSISTENCE_UNIT = "jeemiw";
 
     private static EntityManagerFactory entityManagerFactory = Persistence
             .createEntityManagerFactory(PERSISTENCE_UNIT);
@@ -28,14 +28,12 @@ public class DaoJpaFactory extends DaoFactory {
 
 	@Override
 	public VoteDao getVoteDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new TemaDaoJpa();
 	}
 
 	@Override
 	public TopicDao getTopicDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new VotoDaoJpa();
 	}
 
 
