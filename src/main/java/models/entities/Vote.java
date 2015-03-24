@@ -58,6 +58,10 @@ public class Vote {
 	public levelEducation getEducation() {
 		return education;
 	}
+	
+	public String getEducationString() {
+		return education.toString();
+	}
 
 	public void setEducation(levelEducation education) {
 		this.education = education;

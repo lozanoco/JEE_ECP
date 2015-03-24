@@ -12,7 +12,7 @@ import models.entities.Topic;
 import models.entities.Vote;
 import models.utils.levelEducation;
 
-public class VoteDaoJdbc extends GenericDaoJdbc<Topic, Integer> implements VoteDao {
+public class VoteDaoJdbc extends GenericDaoJdbc<Vote, Integer> implements VoteDao {
 
 	private Vote create(ResultSet resultSet) {
 		Vote vote;
@@ -32,7 +32,7 @@ public class VoteDaoJdbc extends GenericDaoJdbc<Topic, Integer> implements VoteD
 	@Override
 	public void create(Vote vote) {
 		this.updateSql(String.format(SQL_INSERT, Vote.TABLE, Vote.ID, Vote.IP ,Vote.SCORE ,Vote.EDUCATION,
-				vote.getId(),vote.getIp(),vote.getScore(),vote.getEducation());
+				vote.getId(),vote.getIp(),vote.getScore(),vote.getEducationString()));
 	}
 
 
@@ -42,27 +42,26 @@ public class VoteDaoJdbc extends GenericDaoJdbc<Topic, Integer> implements VoteD
 		return this.create(resultSet);
 	}
 
+	private static final String SQL_UPDATE = "UPDATE %s SET %s='%s', %d='%d', %s='%s' WHERE ID=%d";
 	@Override
-	public void update(Topic entity) {
-		// TODO Auto-generated method stub
-
+	public void update(Vote vote) {
+		this.updateSql(String.format(SQL_UPDATE, Vote.IP, vote.getIp(), Vote.SCORE,vote.getScore(),
+                Vote.EDUCATION,vote.getEducationString(), vote.getId()));		
 	}
+
 
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
-		Vote vote=this.read(id);
+		
 	}
+
 
 	@Override
-	public List<Topic> findAll() {
+	public List<Vote> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static String sqlToCreateTable() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }
