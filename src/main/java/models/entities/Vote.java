@@ -18,7 +18,7 @@ public class Vote {
 	public static final String IP = "IP";
 	private String ip;
 	public static final String SCORE = "SCORE";
-	private int score;
+	private Integer score;
 	public static final String EDUCATION = "EDUCATION";
 	private levelEducation education;
 	
