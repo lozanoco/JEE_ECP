@@ -30,9 +30,8 @@ public class Topic {
     @OneToMany(cascade = CascadeType.ALL)
 	private List<Vote> voteList;
 	
-	public Topic(int id, String name, String question) {
+	public Topic(String name, String question) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.question = question;
 	}
