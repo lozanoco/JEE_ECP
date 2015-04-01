@@ -70,6 +70,16 @@ public class Vote {
 		this.education = education;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		assert obj != null;
+		Vote other = (Vote) obj;
+		boolean result = id.equals(other.id) && score == other.score &&
+				ip.equals(other.ip) && education.equals(other.education);
+
+		return result;
+	}
+	
 	
 
 }
