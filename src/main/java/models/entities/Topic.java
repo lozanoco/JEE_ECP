@@ -15,16 +15,19 @@ public class Topic {
 	
 	public static final String TABLE = "topic";
 
+	public static final String ID = "ID";
 	@Id
 	@GeneratedValue
 	private Integer id;
 
+	public static final String NAME = "NAME";
 	private String name;
+	public static final String QUESTION = "QUESTION";
 	private String question;
 	
 	// Relacion unidireccional: 1:0..n
     // Se aplica cascada
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL)
 	private List<Vote> voteList;
 	
 	public Topic(int id, String name, String question) {
@@ -68,5 +71,16 @@ public class Topic {
 	public void setVoteList(ArrayList<Vote> voteList) {
 		this.voteList = voteList;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		assert obj != null;
+		Topic other = (Topic) obj;
+		boolean result = id.equals(other.id) && name.equals(other.name) &&
+				question.equals(other.question);
+
+		return result;
+	}
+
 	
 }
