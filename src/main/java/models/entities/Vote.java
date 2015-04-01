@@ -1,6 +1,8 @@
 package models.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -20,6 +22,7 @@ public class Vote {
 	public static final String SCORE = "SCORE";
 	private Integer score;
 	public static final String EDUCATION = "EDUCATION";
+	@Enumerated(EnumType.STRING)
 	private levelEducation education;
 	
 	public Vote(){}

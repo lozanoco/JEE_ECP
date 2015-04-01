@@ -14,7 +14,7 @@ import org.junit.Test;
 
 
 public class VoteDaoJdbcTest {
-	private VoteDao dao;
+	private VoteDao voteDao;
 	private Vote vote;
 
 	@BeforeClass
@@ -25,40 +25,40 @@ public class VoteDaoJdbcTest {
 
 	@Before
 	public void before(){
-		vote= new Vote("180.5.5.5", 5, levelEducation.PRIMARY);
-		dao = DaoFactory.getFactory().getVoteDao();
-		dao.create(vote);
+		this.vote= new Vote("180.5.5.5", 5, levelEducation.PRIMARY);
+		voteDao = DaoFactory.getFactory().getVoteDao();
+		voteDao.create(vote);
 	}
 
-	 @Test
-	    public void testRead() {
-	        assertEquals(vote, dao.read(vote.getId()));
-	    }
+	@Test
+	public void testRead() {
+		assertEquals(vote, voteDao.read(vote.getId()));
+	}
 
-	    @Test
-	    public void testUpdateCategory() {
-	        vote.setScore(6);
-	        vote.setEducation(levelEducation.HIGHER);
-	        vote.setIp("1.1.1.1");
-	        vote.setId(3);
-	        dao.update(vote);
-	        assertEquals(vote, dao.read(vote.getId()));
-	    }
+	@Test
+	public void testUpdateCategory() {
+		vote.setScore(6);
+		vote.setEducation(levelEducation.HIGHER);
+		vote.setIp("1.1.1.1");
+		vote.setId(3);
+		voteDao.update(vote);
+		assertEquals(vote, voteDao.read(vote.getId()));
+	}
 
-	    @Test
-	    public void testDeleteByID() {
-	        dao.deleteById(vote.getId());
-	        assertNull(dao.read(vote.getId()));
-	        assertNull(DaoFactory.getFactory().getVoteDao().read(vote.getId()));
-	    }
+	@Test
+	public void testDeleteByID() {
+		voteDao.deleteById(vote.getId());
+		assertNull(voteDao.read(vote.getId()));
+		assertNull(DaoFactory.getFactory().getVoteDao().read(vote.getId()));
+	}
 
-	    @Test
-	    public void testFindAll() {
-	        vote = new Vote("ip", 4, levelEducation.SECONDARY);
-	        dao = DaoFactory.getFactory().getVoteDao();
-	        dao.create(vote);
-	        assertEquals(2, dao.findAll().size());
-	    }
+	@Test
+	public void testFindAll() {
+		this.vote = new Vote("ip", 4, levelEducation.SECONDARY);
+		voteDao = DaoFactory.getFactory().getVoteDao();
+		voteDao.create(vote);
+		assertEquals(2, voteDao.findAll().size());
+	}
 
 
 	@After
