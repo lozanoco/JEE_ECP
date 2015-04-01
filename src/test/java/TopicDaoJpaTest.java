@@ -62,7 +62,6 @@ public class TopicDaoJpaTest {
 		assertEquals(2, topicDao.findAll().size());
 	}
 
-
 	@After
 	public void after() {
 		DaoJpaFactory.dropAndCreateTables();
