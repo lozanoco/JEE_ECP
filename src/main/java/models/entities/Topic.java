@@ -1,9 +1,11 @@
 package models.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -22,8 +24,8 @@ public class Topic {
 	
 	// Relacion unidireccional: 1:0..n
     // Se aplica cascada
-    @OneToMany(cascade = CascadeType.ALL)
-	private ArrayList<Vote> voteList;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Vote> voteList;
 	
 	public Topic(int id, String name, String question) {
 		super();
@@ -59,7 +61,7 @@ public class Topic {
 		this.question = question;
 	}
 
-	public ArrayList<Vote> getVoteList() {
+	public List<Vote> getVoteList() {
 		return voteList;
 	}
 
