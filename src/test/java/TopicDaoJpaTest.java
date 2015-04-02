@@ -64,6 +64,7 @@ public class TopicDaoJpaTest {
 		topicDao.update(topic);
 		assertEquals(topic, topicDao.read(topic.getId()));
 	}
+	
 	@Test
 	public void testUpdateVoto() {
 		for(int i=0;i<topic.getVoteList().size();i++) {
