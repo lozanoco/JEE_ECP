@@ -9,9 +9,9 @@
 <body>
 	<h2>Select option:</h2>
 	<a href="/JEE_ECP/jsp/Vote">Vote</a><br>
-	<!--<a href="/JEE_ECP/jsp/ViewVotes">ViewVotes</a><br>
+	<a href="/JEE_ECP/jsp/ViewVotes">ViewVotes</a><br>
 	<a href="/JEE_ECP/jsp/AddTopic">AddTopic</a><br>
-	<a href="/JEE_ECP/jsp/DeleteTopic">DeleteTopic</a><br>-->
+	<a href="/JEE_ECP/jsp/DeleteTopic">DeleteTopic</a><br>
 </body>
 </body>
 </html>

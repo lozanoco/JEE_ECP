@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import views.beans.AddTopicBean;
+import views.beans.DeleteTopicBean;
+import views.beans.ViewVotesBean;
 import views.beans.VoteBean;
 
 /**
@@ -17,7 +20,7 @@ import views.beans.VoteBean;
 @WebServlet(urlPatterns={"/jsp/*"})
 public class JpaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private static String PATH_ROOT_VIEW = "/views/";
 
 	/**
@@ -37,25 +40,25 @@ public class JpaServlet extends HttpServlet {
 		case "Vote":
 			VoteBean voteBean = new VoteBean();
 			request.setAttribute(action, voteBean);
-            view = action;
+			view = action;
 			break;
-			//		case "ViewVotes":
-			//			ViewVotesBean verVotacionesBean = new ViewVotesBean();
-			//
-			//			break;
-			//		case "AddTopic":
-			//			AddTopicBean aniadirTemaBean = new AddTopicBean();
-			//
-			//			break;
-			//		case "DeleteTema":
-			//			DeleteTopicBean eliminarTemaBean = new DeleteTopicBean();
-			//
-			//			break;
+		case "ViewVotes":
+			ViewVotesBean verVotacionesBean = new ViewVotesBean();
+
+			break;
+		case "AddTopic":
+			AddTopicBean aniadirTemaBean = new AddTopicBean();
+
+			break;
+		case "DeleteTema":
+			DeleteTopicBean eliminarTemaBean = new DeleteTopicBean();
+
+			break;
 		default:
 			view = "Home";
 		}
-		 this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
-         .forward(request, response);
+		this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
+		.forward(request, response);
 	}
 
 	/**
