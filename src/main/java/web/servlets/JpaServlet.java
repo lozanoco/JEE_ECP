@@ -3,6 +3,7 @@ package web.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,14 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import persistence.models.entities.Topic;
 import controllers.ControllerFactory;
+import controllers.ejb.ControllerEjbFactory;
 import views.beans.AddTopicBean;
 import views.beans.DeleteTopicBean;
 import views.beans.ViewVotesBean;
 import views.beans.VoteBean;
 
-/**
- * Servlet implementation class Hello_servlet
- */
+
 @WebServlet(urlPatterns={"/jsp/*"})
 public class JpaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,8 +30,12 @@ public class JpaServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public JpaServlet() {
-		super();
+//	public JpaServlet() {
+//		super();
+//	}
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		this.controllerFactory = new ControllerEjbFactory();
 	}
 
 	/**

@@ -7,7 +7,8 @@ import persistence.models.entities.Topic;
 
 public class AddTopicBean extends GenericBean{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 345715435620143597L;
+
 	@PostConstruct
 	public void init() {
 		this.topic = new Topic();
