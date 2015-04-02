@@ -30,7 +30,7 @@ public class TopicDaoJpaTest {
 
 	@Before
 	public void before(){
-		this.topic= new Topic("tema","¿pregunta tema?");
+		this.topic= new Topic("tema","Â¿pregunta tema?");
 		topicDao = DaoFactory.getFactory().getTopicDao();
 		Vote vote1 = new Vote("180.5.5.5", 5, levelEducation.PRIMARY);
 		Vote vote2 = new Vote("180.6.6.6", 7, levelEducation.HIGHER);
@@ -59,7 +59,7 @@ public class TopicDaoJpaTest {
 	@Test
 	public void testUpdateTopic() {
 		topic.setName("tema1");
-		topic.setQuestion("¿question?");
+		topic.setQuestion("Â¿question?");
 		topic.setId(3);
 		topicDao.update(topic);
 		assertEquals(topic, topicDao.read(topic.getId()));
@@ -84,7 +84,7 @@ public class TopicDaoJpaTest {
 
 	@Test
 	public void testFindAll() {
-		this.topic = new Topic("tema3","¿pregunta tema3?");
+		this.topic = new Topic("tema3","Â¿pregunta tema3?");
 		topicDao = DaoFactory.getFactory().getTopicDao();
 		topicDao.create(topic);
 		assertEquals(2, topicDao.findAll().size());
