@@ -34,19 +34,20 @@ public class JpaServlet extends HttpServlet {
 		String action = request.getPathInfo().substring(1);
 		String view = "home";
 		switch (action) {
-		case "Votar":
+		case "Vote":
 			VoteBean voteBean = new VoteBean();
-
+			request.setAttribute(action, voteBean);
+            view = action;
 			break;
-			//		case "VerVotaciones":
+			//		case "ViewVotes":
 			//			ViewVotesBean verVotacionesBean = new ViewVotesBean();
 			//
 			//			break;
-			//		case "AniadirTema":
+			//		case "AddTopic":
 			//			AddTopicBean aniadirTemaBean = new AddTopicBean();
 			//
 			//			break;
-			//		case "EliminarTema":
+			//		case "DeleteTema":
 			//			DeleteTopicBean eliminarTemaBean = new DeleteTopicBean();
 			//
 			//			break;
