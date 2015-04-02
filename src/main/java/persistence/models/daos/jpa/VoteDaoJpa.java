@@ -1,6 +1,6 @@
-package models.daos.jpa;
-import models.daos.VoteDao;
-import models.entities.Vote;
+package persistence.models.daos.jpa;
+import persistence.models.daos.VoteDao;
+import persistence.models.entities.Vote;
 
 public class VoteDaoJpa extends GenericDaoJpa<Vote,Integer> implements VoteDao {
 

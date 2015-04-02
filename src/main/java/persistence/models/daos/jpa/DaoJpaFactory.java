@@ -1,4 +1,4 @@
-package models.daos.jpa;
+package persistence.models.daos.jpa;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,9 +13,9 @@ import org.apache.logging.log4j.LogManager;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
 
-import models.daos.DaoFactory;
-import models.daos.TopicDao;
-import models.daos.VoteDao;
+import persistence.models.daos.DaoFactory;
+import persistence.models.daos.TopicDao;
+import persistence.models.daos.VoteDao;
 
 
 public class DaoJpaFactory extends DaoFactory {

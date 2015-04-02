@@ -1,4 +1,4 @@
-package models.entities;
+package persistence.models.entities;
 
 import java.util.ArrayList;
 import java.util.List;

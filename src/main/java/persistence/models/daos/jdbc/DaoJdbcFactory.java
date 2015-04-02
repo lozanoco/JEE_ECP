@@ -1,4 +1,4 @@
-package models.daos.jdbc;
+package persistence.models.daos.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,11 +7,11 @@ import java.sql.Statement;
 
 import org.apache.logging.log4j.LogManager;
 
-import models.daos.DaoFactory;
-import models.daos.TopicDao;
-import models.daos.VoteDao;
-import models.entities.Topic;
-import models.entities.Vote;
+import persistence.models.daos.DaoFactory;
+import persistence.models.daos.TopicDao;
+import persistence.models.daos.VoteDao;
+import persistence.models.entities.Topic;
+import persistence.models.entities.Vote;
 
 
 public class DaoJdbcFactory extends DaoFactory {

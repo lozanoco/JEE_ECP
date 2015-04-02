@@ -1,4 +1,4 @@
-package models.daos.jdbc;
+package persistence.models.daos.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.sql.Statement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import models.daos.GenericDao;
+import persistence.models.daos.GenericDao;
 
 public abstract class GenericDaoJdbc<T, ID> implements GenericDao<T, ID> {
 

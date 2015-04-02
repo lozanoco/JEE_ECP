@@ -1,4 +1,4 @@
-package models.daos.jdbc;
+package persistence.models.daos.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,9 +7,10 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import models.daos.VoteDao;
-import models.entities.Vote;
-import models.utils.levelEducation;
+
+import persistence.models.daos.VoteDao;
+import persistence.models.entities.Vote;
+import persistence.models.utils.levelEducation;
 
 public class VoteDaoJdbc extends GenericDaoJdbc<Vote, Integer> implements VoteDao {
 	

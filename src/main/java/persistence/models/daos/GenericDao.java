@@ -1,4 +1,4 @@
-package models.daos;
+package persistence.models.daos;
 
 import java.util.List;
 

@@ -2,16 +2,16 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import models.daos.DaoFactory;
-import models.daos.VoteDao;
-import models.daos.jpa.DaoJpaFactory;
-import models.entities.Vote;
-import models.utils.levelEducation;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import persistence.models.daos.DaoFactory;
+import persistence.models.daos.VoteDao;
+import persistence.models.daos.jpa.DaoJpaFactory;
+import persistence.models.entities.Vote;
+import persistence.models.utils.levelEducation;
 
 
 

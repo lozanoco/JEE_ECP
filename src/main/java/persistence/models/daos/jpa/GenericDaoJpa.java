@@ -1,4 +1,4 @@
-package models.daos.jpa;
+package persistence.models.daos.jpa;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.criteria.Root;
 
 import org.apache.logging.log4j.LogManager;
 
-import models.daos.GenericDao;
+import persistence.models.daos.GenericDao;
 
 public class GenericDaoJpa<T, ID> implements GenericDao<T, ID> {
     private Class<T> persistentClass;

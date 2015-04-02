@@ -1,7 +1,7 @@
-package models.daos.jpa;
+package persistence.models.daos.jpa;
 
-import models.daos.TopicDao;
-import models.entities.Topic;
+import persistence.models.daos.TopicDao;
+import persistence.models.entities.Topic;
 
 public class TopicDaoJpa extends GenericDaoJpa<Topic,Integer> implements TopicDao {
 

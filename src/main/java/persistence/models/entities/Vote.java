@@ -1,4 +1,4 @@
-package models.entities;
+package persistence.models.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -6,7 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import models.utils.levelEducation;
+import persistence.models.utils.levelEducation;
 
 @Entity
 public class Vote {
