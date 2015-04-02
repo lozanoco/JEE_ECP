@@ -7,8 +7,10 @@
 <title>Home.jsp</title>
 </head>
 <body>
-	<h1>Home</h1>
-	<p><a href="/JEE_ECP/jsp/home">/JEE_ECP/jsp/home</a></p>
+	<a href="/JEE_ECP/faces/jsp/Vote">Vote</a><br>
+	<!--<a href="/JEE_ECP/jsp/ViewVotes">ViewVotes</a><br>
+	<a href="/JEE_ECP/jsp/AddTopic">AddTopic</a><br>
+	<a href="/JEE_ECP/jsp/DeleteTopic">DeleteTopic</a><br>-->
 </body>
 </body>
 </html>
