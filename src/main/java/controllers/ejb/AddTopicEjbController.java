@@ -10,7 +10,9 @@ public class AddTopicEjbController implements AddTopicController {
 
 	@Override
 	public boolean existTopic(Topic topic) {
-		return false;
+		DaoFactory.setFactory(new DaoJpaFactory());
+		TopicDao topicDao = DaoFactory.getFactory().getTopicDao();
+		return topicDao.read(topic.getId())!=null;
 		
 	}
 
