@@ -3,6 +3,7 @@ package controllers.ejb;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import controllers.AddTopicController;
 import controllers.ControllerFactory;
 import controllers.VoteController;
 
@@ -12,6 +13,8 @@ public class ControllerEjbFactory extends ControllerFactory {
 
 
     private VoteController voteController;
+    
+    private AddTopicController addTopicController;
 
 
 	@Override
@@ -20,6 +23,15 @@ public class ControllerEjbFactory extends ControllerFactory {
             this.voteController = new VoteEjbController();
         }
         return voteController;
+	}
+
+
+	@Override
+	public AddTopicController getAddTopicController() {
+		if (this.addTopicController == null) {
+            this.addTopicController = new AddTopicEjbController();
+        }
+        return addTopicController;
 	}
 
 }
