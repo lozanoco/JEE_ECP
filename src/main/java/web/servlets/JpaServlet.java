@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import persistence.models.entities.Topic;
 import controllers.ControllerFactory;
 import views.beans.AddTopicBean;
 import views.beans.DeleteTopicBean;
@@ -83,8 +84,9 @@ public class JpaServlet extends HttpServlet {
 			addTopicBean.setControllerFactory(this.controllerFactory);
         	String name = request.getParameter("name");
         	String question = request.getParameter("question");
-        	addTopicBean.setTopic(name, question);
+        	addTopicBean.setTopic(new Topic(name, question));
         	request.setAttribute(action, addTopicBean);
+        	view = action;
 			break;
 		}
 	}
