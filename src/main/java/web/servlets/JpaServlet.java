@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controllers.ControllerFactory;
 import views.beans.AddTopicBean;
 import views.beans.DeleteTopicBean;
 import views.beans.ViewVotesBean;
@@ -22,6 +23,8 @@ public class JpaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static String PATH_ROOT_VIEW = "/views/";
+
+	private ControllerFactory controllerFactory;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -39,21 +42,25 @@ public class JpaServlet extends HttpServlet {
 		switch (action) {
 		case "Vote":
 			VoteBean voteBean = new VoteBean();
+			voteBean.setControllerFactory(this.controllerFactory);
 			request.setAttribute(action, voteBean);
 			view = action;
 			break;
 		case "ViewVotes":
 			ViewVotesBean viewVotesBean = new ViewVotesBean();
+			viewVotesBean.setControllerFactory(this.controllerFactory);
 			request.setAttribute(action, viewVotesBean);
 			view = action;
 			break;
 		case "AddTopic":
 			AddTopicBean addTopicBean = new AddTopicBean();
+			addTopicBean.setControllerFactory(this.controllerFactory);
 			request.setAttribute(action, addTopicBean);
 			view = action;
 			break;
 		case "DeleteTema":
 			DeleteTopicBean deleteTopicBean = new DeleteTopicBean();
+			deleteTopicBean.setControllerFactory(this.controllerFactory);
 			request.setAttribute(action, deleteTopicBean);
 			view = action;
 			break;
