@@ -32,7 +32,7 @@ public class JpaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo().substring(1);
-		String view = "home";
+		String view = "Home";
 		switch (action) {
 		case "Vote":
 			VoteBean voteBean = new VoteBean();
@@ -52,7 +52,7 @@ public class JpaServlet extends HttpServlet {
 			//
 			//			break;
 		default:
-			view = "home";
+			view = "Home";
 		}
 		 this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
          .forward(request, response);
