@@ -43,16 +43,19 @@ public class JpaServlet extends HttpServlet {
 			view = action;
 			break;
 		case "ViewVotes":
-			ViewVotesBean verVotacionesBean = new ViewVotesBean();
-
+			ViewVotesBean viewVotesBean = new ViewVotesBean();
+			request.setAttribute(action, viewVotesBean);
+			view = action;
 			break;
 		case "AddTopic":
-			AddTopicBean aniadirTemaBean = new AddTopicBean();
-
+			AddTopicBean addTopicBean = new AddTopicBean();
+			request.setAttribute(action, addTopicBean);
+			view = action;
 			break;
 		case "DeleteTema":
-			DeleteTopicBean eliminarTemaBean = new DeleteTopicBean();
-
+			DeleteTopicBean deleteTopicBean = new DeleteTopicBean();
+			request.setAttribute(action, deleteTopicBean);
+			view = action;
 			break;
 		default:
 			view = "Home";
