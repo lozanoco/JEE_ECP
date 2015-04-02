@@ -62,7 +62,6 @@ public class JpaServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("/JEE_ECP/jsp/home con metodo Post");
 	}
 
 }
