@@ -5,4 +5,4 @@
  * @author Dani
  *
  */
-package controllers;
+package controllers.ejb;
