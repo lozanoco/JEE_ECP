@@ -33,6 +33,10 @@ public class TopicDaoJpaTest {
 	public void before(){
 		this.topic= new Topic("tema","¿pregunta tema?");
 		topicDao = DaoFactory.getFactory().getTopicDao();
+		Vote vote1 = new Vote("180.5.5.5", 5, levelEducation.PRIMARY);
+		Vote vote2 = new Vote("180.6.6.6", 7, levelEducation.HIGHER);
+		this.topic.setVote(vote1);
+		this.topic.setVote(vote2);
 		topicDao.create(topic);
 	}
 
