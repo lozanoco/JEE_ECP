@@ -18,7 +18,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-
 public class TopicDaoJpaTest {
 	private TopicDao topicDao;
 	private Topic topic;
