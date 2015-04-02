@@ -51,7 +51,7 @@ public class AddTopicBean extends GenericBean{
 			this.setTopic(new Topic());
 			this.setError(false);
 		}
-		return null;
+		return "Home";
 	}
 
 }

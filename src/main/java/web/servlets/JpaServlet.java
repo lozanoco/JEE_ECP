@@ -30,9 +30,9 @@ public class JpaServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-//	public JpaServlet() {
-//		super();
-//	}
+	//	public JpaServlet() {
+	//		super();
+	//	}
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		this.controllerFactory = new ControllerEjbFactory();
@@ -92,9 +92,12 @@ public class JpaServlet extends HttpServlet {
 			request.setAttribute(action, addTopicBean);
 			view = PATH_ROOT_VIEW + addTopicBean.process() + ".jsp";
 			break;
+			
+			
+		default:
+			view = PATH_ROOT_VIEW;
 		}
 		this.getServletContext().getRequestDispatcher(view)
 		.forward(request, response);
 	}
-
 }
