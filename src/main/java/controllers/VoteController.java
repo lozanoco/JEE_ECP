@@ -1,11 +1,15 @@
 package controllers;
 
-public class VoteController extends ControllerFactory{
+import java.util.List;
 
-	@Override
-	public VoteController getVoteController() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+import persistence.models.entities.Topic;
+import persistence.models.entities.Vote;
 
+public interface VoteController{
+
+	List<Topic> obtainTopics();
+	
+	Topic findTopic(Integer id);
+	
+	void vote(Topic topic, Vote vote);
 }
