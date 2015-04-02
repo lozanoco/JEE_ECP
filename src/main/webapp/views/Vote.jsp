@@ -34,7 +34,6 @@
 			</c:forEach>
 		</select> <br /> <input type="submit" value="Vote" />
 	</form>
-
 </body>
 </body>
 </html>
