@@ -17,6 +17,8 @@ import views.beans.VoteBean;
 @WebServlet(urlPatterns={"/jsp/*"})
 public class JpaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static String PATH_ROOT_VIEW = "/views/";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -30,7 +32,7 @@ public class JpaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo().substring(1);
-		String view = "Home";
+		String view = "home";
 		switch (action) {
 		case "Votar":
 			VoteBean voteBean = new VoteBean();
@@ -49,8 +51,10 @@ public class JpaServlet extends HttpServlet {
 			//
 			//			break;
 		default:
-			view = "Home";
+			view = "home";
 		}
+		 this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
+         .forward(request, response);
 	}
 
 	/**
