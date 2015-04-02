@@ -7,7 +7,7 @@
 <title>Home.jsp</title>
 </head>
 <body>
-	<h1>Select option:</h1>
+	<h2>Select option:</h2>
 	<a href="/JEE_ECP/jsp/Vote">Vote</a><br>
 	<!--<a href="/JEE_ECP/jsp/ViewVotes">ViewVotes</a><br>
 	<a href="/JEE_ECP/jsp/AddTopic">AddTopic</a><br>

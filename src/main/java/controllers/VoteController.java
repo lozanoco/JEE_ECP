@@ -12,4 +12,6 @@ public interface VoteController{
 	Topic findTopic(Integer id);
 	
 	void vote(Topic topic, Vote vote);
+	
+	List<String> getLevelEducation();
 }
