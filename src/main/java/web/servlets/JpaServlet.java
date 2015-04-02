@@ -75,6 +75,18 @@ public class JpaServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getPathInfo().substring(1);
+		String view = "Home";
+		switch (action) {
+		case "AddTopic":
+			AddTopicBean addTopicBean = new AddTopicBean();
+			addTopicBean.setControllerFactory(this.controllerFactory);
+        	String name = request.getParameter("name");
+        	String question = request.getParameter("question");
+        	addTopicBean.setTopic(name, question);
+        	request.setAttribute(action, addTopicBean);
+			break;
+		}
 	}
 
 }

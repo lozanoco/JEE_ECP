@@ -28,7 +28,7 @@ public class AddTopicBean extends GenericBean{
 		return topic;
 	}
 
-	public void setTema(Topic topic) {
+	public void setTopic(Topic topic) {
 		this.topic = topic;
 	}
 
@@ -47,7 +47,7 @@ public class AddTopicBean extends GenericBean{
 			this.setError(true);
 		} else {
 			addTopicController.addTopic(this.getTopic());
-			this.setTema(new Topic());
+			this.setTopic(new Topic());
 			this.setError(false);
 		}
 		return null;
