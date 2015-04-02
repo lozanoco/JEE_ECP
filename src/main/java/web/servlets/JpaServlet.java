@@ -82,13 +82,15 @@ public class JpaServlet extends HttpServlet {
 		case "AddTopic":
 			AddTopicBean addTopicBean = new AddTopicBean();
 			addTopicBean.setControllerFactory(this.controllerFactory);
-        	String name = request.getParameter("name");
-        	String question = request.getParameter("question");
-        	addTopicBean.setTopic(new Topic(name, question));
-        	request.setAttribute(action, addTopicBean);
-        	view = action;
+			String name = request.getParameter("name");
+			String question = request.getParameter("question");
+			addTopicBean.setTopic(new Topic(name, question));
+			request.setAttribute(action, addTopicBean);
+			view = PATH_ROOT_VIEW + addTopicBean.process() + ".jsp";
 			break;
 		}
+		this.getServletContext().getRequestDispatcher(view)
+		.forward(request, response);
 	}
 
 }
