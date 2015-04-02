@@ -25,8 +25,7 @@ public class VoteBean extends GenericBean{
 	public void update() {
 		LogManager.getLogger(VoteBean.class).debug(
                 "Recupera temas del Negocio");
-        this.topics = null;
-		
+        this.topics = null;		
 	}
 
 	@Override
