@@ -1,6 +1,9 @@
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+
+import java.util.ArrayList;
+
 import models.daos.DaoFactory;
 import models.daos.TopicDao;
 import models.daos.VoteDao;
@@ -37,9 +40,21 @@ public class TopicDaoJpaTest {
 	public void testRead() {
 		assertEquals(topic, topicDao.read(topic.getId()));
 	}
+	
+	@Test
+    public void testReadVotes() {
+        assertEquals(topic.getVoteList(), topicDao.read(topic.getId()).getVoteList());
+    }
+    
+    @Test
+    public void testReadVote() {        
+        for(int i=0;i<topic.getVoteList().size();i++) {
+        	assertEquals(topic.getVoteList().get(i), topicDao.read(topic.getId()).getVoteList().get(i));
+        }
+    }
 
 	@Test
-	public void testUpdateVote() {
+	public void testUpdateTopic() {
 		topic.setName("tema1");
 		topic.setQuestion("¿question?");
 		topic.setId(3);
@@ -47,6 +62,7 @@ public class TopicDaoJpaTest {
 		assertEquals(topic, topicDao.read(topic.getId()));
 	}
 
+	
 	@Test
 	public void testDeleteByID() {
 		topicDao.deleteById(topic.getId());

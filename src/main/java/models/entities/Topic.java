@@ -67,10 +67,17 @@ public class Topic {
 		return voteList;
 	}
 
-	public void setVoteList(ArrayList<Vote> voteList) {
-		this.voteList = voteList;
+	public void setVote(Vote vote) {
+		if(this.getVoteList() == null) {
+			this.setVoteList(new ArrayList<Vote>());
+		}
+		this.getVoteList().add(vote);
 	}
 	
+	private void setVoteList(List<Vote> voteList) {
+		this.voteList = voteList;		
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		assert obj != null;
