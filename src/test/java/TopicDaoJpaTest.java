@@ -43,18 +43,18 @@ public class TopicDaoJpaTest {
 	public void testRead() {
 		assertEquals(topic, topicDao.read(topic.getId()));
 	}
-	
+
 	@Test
-    public void testReadVotes() {
-        assertEquals(topic.getVoteList(), topicDao.read(topic.getId()).getVoteList());
-    }
-    
-    @Test
-    public void testReadVote() {        
-        for(int i=0;i<topic.getVoteList().size();i++) {
-        	assertEquals(topic.getVoteList().get(i), topicDao.read(topic.getId()).getVoteList().get(i));
-        }
-    }
+	public void testReadVotes() {
+		assertEquals(topic.getVoteList(), topicDao.read(topic.getId()).getVoteList());
+	}
+
+	@Test
+	public void testReadVote() {        
+		for(int i=0;i<topic.getVoteList().size();i++) {
+			assertEquals(topic.getVoteList().get(i), topicDao.read(topic.getId()).getVoteList().get(i));
+		}
+	}
 
 	@Test
 	public void testUpdateTopic() {
@@ -64,8 +64,16 @@ public class TopicDaoJpaTest {
 		topicDao.update(topic);
 		assertEquals(topic, topicDao.read(topic.getId()));
 	}
-
-	
+	@Test
+	public void testUpdateVoto() {
+		for(int i=0;i<topic.getVoteList().size();i++) {
+			topic.getVoteList().get(i).setIp("255.255.255.255");
+			topic.getVoteList().get(i).setEducation(levelEducation.SECONDARY);
+			topic.getVoteList().get(i).setScore(6);
+			topicDao.update(topic);
+			assertEquals(topic.getVoteList().get(i), topicDao.read(topic.getId()).getVoteList().get(i));
+		}
+	}
 	@Test
 	public void testDeleteByID() {
 		topicDao.deleteById(topic.getId());
