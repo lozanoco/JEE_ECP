@@ -1,10 +1,14 @@
 package views.beans;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import controllers.AddTopicController;
 import persistence.models.entities.Topic;
 
+@ManagedBean
+@ViewScoped
 public class AddTopicBean extends GenericBean{
 
 	private static final long serialVersionUID = 345715435620143597L;

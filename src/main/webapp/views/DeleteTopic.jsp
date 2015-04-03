@@ -11,15 +11,15 @@
 	<c:set var="bean" scope="request" value="${deleteTopicBean}" />
 	<h2>Delete Topic</h2>
 	<c:choose>
-		<c:when test="${bean.authorization == true}">
+		<c:when test="${bean.authorized == true}">
 			<h5>Choose topic to delete:</h5>
 			<form method="POST" action="/JEE_ECP/jsp/DeleteTopic">
 				<input type="hidden" name="authorization" value="${bean.authorized}" />
 				<c:forEach items="${bean.Topic}" var="topic">
 					<input type="radio" name="id" value="${topic.id}" />${topic.name}
-							<br />
+							<br/>
 				</c:forEach>
-				<br /> <input type="submit" value="Delete" />
+				<br/> <input type="submit" value="Delete" />
 			</form>
 		</c:when>
 		<c:otherwise>
