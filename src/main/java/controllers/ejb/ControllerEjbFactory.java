@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import controllers.AddTopicController;
 import controllers.ControllerFactory;
 import controllers.DeleteTopicController;
+import controllers.ViewVoteController;
 import controllers.VoteController;
 
 @ManagedBean(name = "controllerEJBFactory")
@@ -18,6 +19,8 @@ public class ControllerEjbFactory extends ControllerFactory {
     private AddTopicController addTopicController;
     
     private DeleteTopicController deleteTopicController;
+    
+    private ViewVoteController viewVoteController;
 
 
 	@Override
@@ -44,6 +47,15 @@ public class ControllerEjbFactory extends ControllerFactory {
             this.deleteTopicController = new DeleteTopicEjbController();
         }
         return deleteTopicController;
+	}
+
+
+	@Override
+	public ViewVoteController getViewVoteController() {
+		if (this.viewVoteController == null) {
+            this.viewVoteController = new viewVoteEjbController();
+        }
+        return viewVoteController;
 	}
 
 }

@@ -7,4 +7,6 @@ public abstract class ControllerFactory {
 	public abstract AddTopicController getAddTopicController();
 
 	public abstract DeleteTopicController getDeleteTopicController();
+
+	public abstract ViewVoteController getViewVoteController();
 }

@@ -18,10 +18,22 @@ public class ViewVotesBean extends GenericBean{
 	private Topic topic;
 
 	public String process() {
-		// TODO Auto-generated method stub
+		if(topic != null){
+			this.educationLevel=  this.getControllerFactory().getVoteController().getLevelEducationArray();
+			this.nVotes = this.getControllerFactory().getViewVoteController().getNVotes(topic);
+			this.average = this.getControllerFactory().getViewVoteController().getAveragePerEducationLevel(topic);
+			
+		}
 		return "ViewVotes";
 	}
 	
+
+//	private void obtainArrayLevelEducation() {
+//		for(String levelEducation:this.getControllerFactory().getVoteController().getLevelEducation()){
+//			this.educationLevel = 	getLevelEducationFormat(levelEducation);		
+//		}
+//	}
+
 
 	public Integer getnVotes() {
 		return nVotes;

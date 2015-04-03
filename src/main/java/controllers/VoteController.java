@@ -19,4 +19,6 @@ public interface VoteController{
 	Vote createVote(Integer score, String ip, String levelEducation);
 
 	Topic getTopic(Integer id);
+
+	levelEducation[] getLevelEducationArray();
 }

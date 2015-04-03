@@ -65,4 +65,9 @@ public class VoteEjbController implements VoteController{
 		return DaoFactory.getFactory().getTopicDao().read(id);
 	}
 
+	@Override
+	public levelEducation[] getLevelEducationArray() {
+		return new levelEducation[]{levelEducation.PRIMARY,levelEducation.SECONDARY,levelEducation.HIGHER};
+	}
+
 }
