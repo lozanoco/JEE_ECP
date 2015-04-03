@@ -8,7 +8,7 @@
 <title>Delete Topic</title>
 </head>
 <body>
-	<c:set var="bean" scope="request" value="${deleteTopicBean}" />
+	<c:set var="bean" scope="request" value="${DeleteTopic}" />
 	<h2>Delete Topic</h2>
 	<div>${bean.update()}</div>
 	<form action="/JEE_ECP/jsp/DeleteTopic" method="post">

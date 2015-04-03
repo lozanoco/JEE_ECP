@@ -102,8 +102,12 @@ public class JpaServlet extends HttpServlet {
 			DeleteTopicBeanAuthorization deleteTopicBeanAuthorization = new DeleteTopicBeanAuthorization();
 			deleteTopicBeanAuthorization.setControllerFactory(this.controllerFactory);
 			deleteTopicBeanAuthorization.setToken(request.getParameter("token"));
-			request.setAttribute(action, deleteTopicBeanAuthorization);
-			view =  PATH_ROOT_VIEW + deleteTopicBeanAuthorization.process() + JSP;
+			DeleteTopicBean deleteTopicBean2 = new DeleteTopicBean();
+			deleteTopicBean2.setControllerFactory(this.controllerFactory);
+			String viewReturn = deleteTopicBeanAuthorization.process();
+			view =  PATH_ROOT_VIEW + viewReturn + JSP;
+			if(viewReturn.equals("DeleteTopicAuthorization"))request.setAttribute(viewReturn, deleteTopicBeanAuthorization);
+			else request.setAttribute(viewReturn, deleteTopicBean2);
 			break;
 			
 		default:
