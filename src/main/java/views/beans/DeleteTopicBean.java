@@ -17,16 +17,9 @@ public class DeleteTopicBean extends GenericBean{
 	private String token;
 	private Integer topicId;
 	private boolean authorized;
-	private Topic topic;
 
-	private List<Topic> topics;
 
 	public DeleteTopicBean() {
-	}
-	@PostConstruct
-	public void init() {
-		this.topics = new ArrayList<Topic>();
-		this.topic = new Topic();
 	}
 
 	public String getToken() {
@@ -64,16 +57,5 @@ public class DeleteTopicBean extends GenericBean{
 	public void setAuthorized(boolean authorized) {
 		this.authorized = authorized;
 	}
-	public Topic getTopic() {
-		return topic;
-	}
-	public void setTopic(Topic topic) {
-		this.topic = topic;
-	}
-	public List<Topic> getTopics() {
-		return topics;
-	}
-	public void setTopics(List<Topic> topics) {
-		this.topics = topics;
-	}
+	
 }
