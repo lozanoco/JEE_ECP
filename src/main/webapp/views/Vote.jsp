@@ -6,19 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Vote view</title>
-<script type="text/javascript">
-	function change() {
-		var value = document.getElementById("score").value
-		document.getElementById("score_txt").innerHTML = "Score: " + value;
-	}
-	function load() {
-		if (document.getElementById("score")) {
-			document.getElementById("score").addEventListener('change', change);
-		}
-	}
-</script>
+
 </head>
-<body onload="load()">
+<body>
 	<c:set var="bean" scope="request" value="${Vote}" />
 	<h2>Vote</h2>
 	<div>${bean.update()}</div>
@@ -30,18 +20,21 @@
 				<input id="topic" name="topic" type="text"
 					value="${bean.topic.name}" readonly />
 				<br />
-				<input type="hidden" name="id" value="${topic.id}" />
+				<input type="hidden" name="id" value="${bean.topic.id}" />
 				<label for="question">Question: </label>
 				<input id="question" name="question" type="text"
 					value="${bean.topic.question}" readonly />
 				<br />
-				<label for="valoracion">Score: </label>
-				<input type="range" id="score" name="score" value="0" min="0"
-					max="10">
-				<span id="score_txt">Score: 0</span>
-				<br />
+				<p>
+					Score: <select name="value">
+						<c:forEach begin="0" end="10" varStatus="loop">
+							<option value="${loop.current}">${loop.current}</option>
+						</c:forEach>
+					</select>
+				</p>
+				<br>
 				<label for="">Education Level: </label>
-				<select id="education" name="education">
+				<select id="educationLevel" name="educationLevel">
 					<c:forEach items="${bean.levelEducationList}" var="educationLevel">
 						<option value="${educationLevel}">${educationLevel}</option>
 					</c:forEach>
@@ -63,6 +56,9 @@
 		<input type="submit" value="SelecctTopic" />
 	</c:otherwise>
 	</c:choose>
+	<p>
+		<a href="/JEE_ECP/jsp/Home">Back to Home</a>
+	</p>
 </body>
 </body>
 </html>

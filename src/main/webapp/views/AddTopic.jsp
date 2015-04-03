@@ -25,6 +25,9 @@
 		<input id="pregunta" name="question" type="text" value="${bean.topic.question}" /><br />
 		<br /> <input type="submit" value="Add topic" />
 	</form>
+	<p>
+		<a href="/JEE_ECP/jsp/Home">Back to Home</a>
+	</p>
 </body>
 </body>
 </html>
