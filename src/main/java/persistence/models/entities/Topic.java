@@ -28,6 +28,7 @@ public class Topic {
 	// Relacion unidireccional: 1:0..n
     // Se aplica cascada
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    
 	private List<Vote> voteList;
 	
 	public Topic(String name, String question) {
