@@ -7,8 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import controllers.DeleteTopicController;
-import controllers.VoteController;
 import persistence.models.entities.Topic;
 
 @ManagedBean
@@ -47,26 +45,12 @@ public class DeleteTopicBean extends GenericBean{
 	}
 
 	public String process() {
-		DeleteTopicController deleteTopicController = this.getControllerFactory().getDeleteTopicController();
-		VoteController voteController = this.getControllerFactory().getVoteController();
-		this.setAuthorized(deleteTopicController.authorize(this.getAuthorized()));
-		if(this.isAuthrorized()){
-			if (this.getTopicId() != null) {
-				deleteTopicController.deleteTopic(this.getTopicId());
-			}
-			this.setTopics(voteController.obtainTopics());
-			this.setTopic(new Topic());
-			this.setAuthorized(true);
-		}
-		else{
-			this.setAuthorized(false);
-		}
 		if(token == null && topicId != null){
 			this.getControllerFactory().getDeleteTopicController().deleteTopic(topicId);
 		}else if(token != null && !token.equals("")){
 			authorized = this.getControllerFactory().getDeleteTopicController().authorize(token);
 		}
-		return "Home";
+		return "DeleteTopic";
 	}
 
 	public boolean isAuthrorized() {
