@@ -10,7 +10,7 @@
 <body>
 	<c:set var="bean" scope="request" value="${ViewVotes}" />
 	<h2>View Votes</h2>
-	<div>${bean.process()}</div>
+	<div>${bean.update()}</div>
 	<form action="/JEE_ECP/jsp/ViewVotes" method="post">
 		<p>
 			Topics: <select name="id" onchange="this.form.submit()">

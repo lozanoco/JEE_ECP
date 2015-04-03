@@ -37,10 +37,10 @@ public class TopicDaoJpa extends GenericDaoJpa<Topic,Integer> implements TopicDa
 		CriteriaBuilder criteria = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Tuple> criteriaQuery = criteria.createQuery(Tuple.class);
 		Root<Topic> topics = criteriaQuery.from(Topic.class);
-		Path<Object> path = topics.join("votes");
-		CriteriaQuery<Tuple> select = criteriaQuery.select(criteria.tuple(path.get("levelEducation"), criteria.avg(path.get("score"))));
+		Path<Object> path = topics.join("voteList");
+		CriteriaQuery<Tuple> select = criteriaQuery.select(criteria.tuple(path.get("education"), criteria.avg(path.get("score"))));
 		select.where(criteria.equal(topics.get("id"), id));
-		select.groupBy(path.get("levelEducation"));
+		select.groupBy(path.get("education"));
 		List<Tuple> result = entityManager.createQuery(select).getResultList();
 		return this.getVotesAverage(result);
 	}

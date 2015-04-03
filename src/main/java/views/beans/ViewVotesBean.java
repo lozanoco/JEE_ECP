@@ -5,7 +5,7 @@ import java.util.HashMap;
 import persistence.models.entities.Topic;
 import persistence.models.utils.levelEducation;
 
-public class ViewVotesBean extends GenericBean{
+public class ViewVotesBean extends ListTopicsBean{
 
 	private static final long serialVersionUID = 1L;
 	
