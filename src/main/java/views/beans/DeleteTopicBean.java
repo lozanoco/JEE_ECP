@@ -3,10 +3,10 @@ package views.beans;
 public class DeleteTopicBean extends GenericBean{
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String token;
 	private Integer topicId;
-	
+
 
 	public String getToken() {
 		return token;
@@ -24,8 +24,9 @@ public class DeleteTopicBean extends GenericBean{
 	}
 
 	public String process() {
-		// TODO Auto-generated method stub
-		return null;
+		if(token == null && topicId != null){
+			this.getControllerFactory().getDeleteTopicController().deleteTopic(topicId);
+		}
+		return token;
 	}
-
 }
