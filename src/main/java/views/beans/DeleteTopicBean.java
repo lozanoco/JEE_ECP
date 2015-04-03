@@ -1,13 +1,7 @@
 package views.beans;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-
-import persistence.models.entities.Topic;
 
 @ManagedBean
 @ViewScoped
