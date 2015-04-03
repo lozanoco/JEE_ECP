@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import persistence.models.entities.Topic;
+import persistence.models.utils.levelEducation;
 import controllers.ControllerFactory;
 import controllers.ejb.ControllerEjbFactory;
 import views.beans.AddTopicBean;
@@ -109,7 +110,20 @@ public class JpaServlet extends HttpServlet {
 			if(viewReturn.equals("DeleteTopicAuthorization"))request.setAttribute(viewReturn, deleteTopicBeanAuthorization);
 			else request.setAttribute(viewReturn, deleteTopicBean2);
 			break;
-			
+		case "Vote":
+			VoteBean voteBean = new VoteBean();
+			voteBean.setControllerFactory(this.controllerFactory);
+			voteBean.setTopic(Integer.parseInt(request.getParameter("id")));
+			String value = request.getParameter("value");
+			if(value != null && !value.equals(""))
+				voteBean.setValue(Integer.parseInt(value));
+			String educationLevel = request.getParameter("educationLevel");
+			if(educationLevel != null && !educationLevel.equals(""))
+				voteBean.setLevelEducation(levelEducation.valueOf(educationLevel));
+			voteBean.setIp(request.getRemoteAddr());
+			request.setAttribute(action, voteBean);
+			view =  PATH_ROOT_VIEW + voteBean.process() + JSP;
+			break;	
 		default:
 			view = PATH_ROOT_VIEW;
 		}

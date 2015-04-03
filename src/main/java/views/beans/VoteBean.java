@@ -22,89 +22,115 @@ public class VoteBean extends GenericBean{
 
 	public VoteBean() {
 	}
-	
+
 	private String levelEducation;
 
-    private List<String> levelEducationList = new ArrayList<String>();
+	private List<String> levelEducationList = new ArrayList<String>();
 
-    private Vote vote = new Vote();
+	private Topic topic;
 
-    private Topic topic = new Topic();
+	private Integer value;
 
-    private Integer topicId;
+	private String ip;
 
-    private List<Topic> topics = new ArrayList<Topic>();
+	public String getIp() {
+		return ip;
+	}
 
-    public List<Topic> getTopics() {
-        return topics;
-    }
-    
-    public void setTopics(List<Topic> topics) {
-        this.topics = topics;
-    }	
-	
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	private Integer topicId;
+
+	private String question;
+
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	private List<Topic> topics = new ArrayList<Topic>();
+
+	public List<Topic> getTopics() {
+		return topics;
+	}
+
+	public void setTopics(List<Topic> topics) {
+		this.topics = topics;
+	}	
+
 
 	public void update() {
 		VoteController voteController = this.getControllerFactory().getVoteController();
-        this.setTopics(voteController.obtainTopics());
-        this.setEducationLevelList(voteController.getLevelEducation());
-		
+		this.setTopics(voteController.obtainTopics());
+		this.setEducationLevelList(voteController.getLevelEducation());
+
+	}
+	public void chargeData(Topic vote){
+		this.topicId=vote.getId();
+		this.question=vote.getQuestion();
 	}
 
 	public String process() {
-		VoteController voteController= this.getControllerFactory().getVoteController();
-		if (vote.getScore() >0) {
-            voteController.vote(this.getTopic(), this.getVote());
-            this.setVote(new Vote());
-            this.setTopic(new Topic());
-            this.setTopics(voteController.obtainTopics());
-            this.setEducationLevelList(voteController.getLevelEducation());
-        } else {
-            if (this.getTopic().getId() >=0) {
-                this.setTopics(voteController.obtainTopics());
-            } else {
-                this.setTopic(voteController.findTopic(this.getTopic().getId()));
-                this.setEducationLevelList(voteController.getLevelEducation());
-            }
-        }
-		return null;
+		if (value !=null) {
+			this.getControllerFactory().getVoteController().vote(topic, createVote());
+		}
+		return "Votar";
 	}
-	
+
+	private Vote createVote() {
+		return this.getControllerFactory().getVoteController().createVote(value, this.ip, this.levelEducation);
+	}
+
 	public Topic getTopic() {
-        return topic;
-    }
+		return topic;
+	}
 
-    public void setTopic(Topic topic) {
-        this.topic = topic;
-    }
+	public void setTopic(Integer id) {
+		this.topic =  this.getControllerFactory().getVoteController().getTopic(id);
+	}
 
-    public Vote getVote() {
-        return vote;
-    }
+	public String getEducationLevel() {
+		return levelEducation;
+	}
 
-    public void setVote(Vote vote) {
-        this.vote = vote;
-    }
+	public void setEducationLevel(String levelEducation) {
+		this.levelEducation = levelEducation;
+	}
 
-    public String getEducationLevel() {
-        return levelEducation;
-    }
+	public Integer getTopicId() {
+		return topicId;
+	}
 
-    public void setEducationLevel(String levelEducation) {
-        this.levelEducation = levelEducation;
-    }
+	public void setTopicId(Integer topicId) {
+		this.topicId = topicId;
+	}
 
-    public Integer getTopicId() {
-        return topicId;
-    }
+	public void setEducationLevelList(List<String> educationLevelList) {
+		this.setLevelEducationList(educationLevelList);
+	}
 
-    public void setTopicId(Integer topicId) {
-        this.topicId = topicId;
-    }
-    
-    public void setEducationLevelList(List<String> educationLevelList) {
-        this.levelEducationList = educationLevelList;
-    }
+	public List<String> getLevelEducationList() {
+		return levelEducationList;
+	}
+
+	public void setLevelEducationList(List<String> levelEducationList) {
+		this.levelEducationList = levelEducationList;
+	}
+
+	public void setValue(int value) {
+		this.value=value;
+		
+	}
+
+	public void setLevelEducation(levelEducation education) {
+		this.levelEducation=education.toString();
+		
+	}
 
 
 }
