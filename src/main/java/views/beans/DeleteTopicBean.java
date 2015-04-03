@@ -5,12 +5,12 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean
 @ViewScoped
-public class DeleteTopicBean extends GenericBean{
+public class DeleteTopicBean extends ListTopicsBean{
 
 	private static final long serialVersionUID = 7389408341421311664L;
 	private String token;
 	private Integer topicId;
-	private boolean authorized;
+	private boolean authorized = false;
 
 
 	public DeleteTopicBean() {
@@ -50,6 +50,12 @@ public class DeleteTopicBean extends GenericBean{
 
 	public void setAuthorized(boolean authorized) {
 		this.authorized = authorized;
+	}
+
+	@Override
+	public void dataUpdate() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
