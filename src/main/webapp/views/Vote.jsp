@@ -42,7 +42,6 @@
 				<br />
 				<input type="submit" value="Vote" />
 	</form>
-
 	</c:when>
 	<c:otherwise>
 		<p>
