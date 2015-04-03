@@ -10,21 +10,14 @@
 <body>
 	<c:set var="bean" scope="request" value="${deleteTopicBean}" />
 	<h2>Delete Topic</h2>
-	<div>${deleteTopicBean.update()}</div>
-	<form action="/JEE_ECP/jsp/DeleteTopic" method="post">
-		<p>Topics:</p>
-		<select name="select" id="select" >
-			<c:forEach var="topic" items="${deleteTopicBean.topics}">
-				<option value="${topic.id}">${topic.name}</option>
-			</c:forEach>
-		</select>
-		<p>
-			<input type="submit" value="Delete" />
-		</p>
+	<form method="POST" action="/JEE_ECP/jsp/DeleteTopic">
+		<label for="token">Input code: </label> <input id="token" name="token"
+			type="text" /> <br /> <br /> <input type="submit"
+			value="Send Token" />
+
 	</form>
-	<p>
-		<a href="/JEE_ECP/jsp/Home">Back to Home</a>
-	</p>
+	<a href="/JEE_ECP/Home.jsp">Back to Home</a>
+	<br>
 </body>
 </body>
 </html>

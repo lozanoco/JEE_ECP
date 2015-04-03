@@ -1,10 +1,6 @@
 package views.beans;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
-@ManagedBean
-@ViewScoped
 public class DeleteTopicBean extends ListTopicsBean{
 
 	private static final long serialVersionUID = 7389408341421311664L;

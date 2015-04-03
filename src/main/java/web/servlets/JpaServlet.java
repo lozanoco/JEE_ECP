@@ -61,6 +61,9 @@ public class JpaServlet extends HttpServlet {
 			request.setAttribute(action, deleteTopicBean);
 			view = action;
 			break;
+		case "DeleteTopicAuthorization":
+			view = action;
+			break;
 		default:
 			view = "Home";
 		}
