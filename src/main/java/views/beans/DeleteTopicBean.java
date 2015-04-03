@@ -2,8 +2,7 @@ package views.beans;
 
 public class DeleteTopicBean extends GenericBean{
 
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 7389408341421311664L;
 	private String token;
 	private Integer topicId;
 	private boolean authorized;

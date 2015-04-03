@@ -55,7 +55,7 @@ public class JpaServlet extends HttpServlet {
 			request.setAttribute(action, addTopicBean);
 			view = action;
 			break;
-		case "DeleteTema":
+		case "DeleteTopic":
 			DeleteTopicBean deleteTopicBean = new DeleteTopicBean();
 			deleteTopicBean.setControllerFactory(this.controllerFactory);
 			request.setAttribute(action, deleteTopicBean);
