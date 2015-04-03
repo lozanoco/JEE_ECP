@@ -17,7 +17,7 @@
 <body onload="load()">
 	<c:set var="bean" scope="request" value="${addTopicBean}" />
 	<h2>Add Topic</h2>
-	<h5>Choose topic for vote: ${bean.topic.nombre}</h5>
+	<h5>Choose topic for vote: ${bean.topic.name}</h5>
 	<form method="POST" action="/JEE_ECP/jsp/AddTopic">
 		<label for="id">Id: </label> 
 		<input id="id" name="id" type="text" value="${bean.topic.id}" /><br /> 
