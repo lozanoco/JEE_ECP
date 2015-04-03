@@ -123,7 +123,14 @@ public class JpaServlet extends HttpServlet {
 			voteBean.setIp(request.getRemoteAddr());
 			request.setAttribute(action, voteBean);
 			view =  PATH_ROOT_VIEW + voteBean.process() + JSP;
-			break;	
+			break;
+		case "ViewVotes":
+			ViewVotesBean viewVotesBean = new ViewVotesBean();
+			viewVotesBean.setControllerFactory(this.controllerFactory);
+			viewVotesBean.setTopic(Integer.parseInt(request.getParameter("id")));
+			request.setAttribute(action, viewVotesBean);
+			view =  PATH_ROOT_VIEW + viewVotesBean.process() + JSP;
+			break;
 		default:
 			view = PATH_ROOT_VIEW;
 		}
