@@ -1,7 +1,6 @@
 package web.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -24,23 +23,16 @@ public class JpaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static String PATH_ROOT_VIEW = "/views/";
+	
+	private static String JSP = ".jsp";
 
 	private ControllerFactory controllerFactory;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	//	public JpaServlet() {
-	//		super();
-	//	}
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		this.controllerFactory = new ControllerEjbFactory();
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo().substring(1);
 		String view = "Home";
@@ -72,7 +64,7 @@ public class JpaServlet extends HttpServlet {
 		default:
 			view = "Home";
 		}
-		this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
+		this.getServletContext().getRequestDispatcher(PATH_ROOT_VIEW + view + JSP)
 		.forward(request, response);
 	}
 
@@ -90,9 +82,18 @@ public class JpaServlet extends HttpServlet {
 			String question = request.getParameter("question");
 			addTopicBean.setTopic(new Topic(name, question));
 			request.setAttribute(action, addTopicBean);
-			view = PATH_ROOT_VIEW + addTopicBean.process() + ".jsp";
+			view = PATH_ROOT_VIEW + addTopicBean.process() + JSP;
 			break;
-			
+		case "DeleteTopic":
+			DeleteTopicBean deleteTopicBean = new DeleteTopicBean();
+			deleteTopicBean.setControllerFactory(this.controllerFactory);
+			deleteTopicBean.setToken(request.getParameter("token"));
+			String topicId = request.getParameter("topic");
+			if(topicId != null)
+				deleteTopicBean.setTopicId(Integer.parseInt(topicId));
+			request.setAttribute(action, deleteTopicBean);
+			view =  PATH_ROOT_VIEW + deleteTopicBean.process() + JSP;
+			break;	
 			
 		default:
 			view = PATH_ROOT_VIEW;
