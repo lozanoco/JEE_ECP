@@ -41,18 +41,6 @@ public class VoteBean extends GenericBean{
 		this.ip = ip;
 	}
 
-	private Integer topicId;
-
-	private String question;
-
-	public String getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-
 	private List<Topic> topics = new ArrayList<Topic>();
 
 	public List<Topic> getTopics() {
@@ -70,16 +58,13 @@ public class VoteBean extends GenericBean{
 		this.setEducationLevelList(voteController.getLevelEducation());
 
 	}
-	public void chargeData(Topic vote){
-		this.topicId=vote.getId();
-		this.question=vote.getQuestion();
-	}
+
 
 	public String process() {
 		if (value !=null) {
 			this.getControllerFactory().getVoteController().vote(topic, createVote());
 		}
-		return "Votar";
+		return "Vote";
 	}
 
 	private Vote createVote() {
@@ -102,13 +87,6 @@ public class VoteBean extends GenericBean{
 		this.levelEducation = levelEducation;
 	}
 
-	public Integer getTopicId() {
-		return topicId;
-	}
-
-	public void setTopicId(Integer topicId) {
-		this.topicId = topicId;
-	}
 
 	public void setEducationLevelList(List<String> educationLevelList) {
 		this.setLevelEducationList(educationLevelList);

@@ -22,37 +22,46 @@
 	<c:set var="bean" scope="request" value="${Vote}" />
 	<h2>Vote</h2>
 	<div>${bean.update()}</div>
-	<c:choose>
-		<c:when test="${not empty bean.topic}">
+	<form method="POST" action="/JEE_ECP/jsp/Vote">
+		<c:choose>
+			<c:when test="${not empty bean.topic}">
 
-			<form method="POST" action="/JEE_ECP/jsp/Vote">
-				<label for="topic">Topic name: </label> <input id="topic"
-					name="topic" type="text" value="${bean.topic.name}"
-					readonly /><br /> <input type="hidden" name="id"
-					value="${topic.id}" />
-				<p>Question: ${topic.question}</p>
-				<br /> <label for="valoracion">Score: </label> <input type="range"
-					id="score" name="score" value="0" min="0" max="10"> <span
-					id="score_txt">Score: 0</span><br /> <label for="">Education
-					Level: </label> <select id="education" name="education">
+				<label for="topic">Topic name: </label>
+				<input id="topic" name="topic" type="text"
+					value="${bean.topic.name}" readonly />
+				<br />
+				<input type="hidden" name="id" value="${topic.id}" />
+				<label for="question">Question: </label>
+				<input id="question" name="question" type="text"
+					value="${bean.topic.question}" readonly />
+				<br />
+				<label for="valoracion">Score: </label>
+				<input type="range" id="score" name="score" value="0" min="0"
+					max="10">
+				<span id="score_txt">Score: 0</span>
+				<br />
+				<label for="">Education Level: </label>
+				<select id="education" name="education">
 					<c:forEach items="${bean.levelEducationList}" var="educationLevel">
 						<option value="${educationLevel}">${educationLevel}</option>
 					</c:forEach>
-				</select> <br /> <input type="submit" value="Vote" />
-			</form>
-
-		</c:when>
-		<c:otherwise>
-			<p>
-				Choose topic for vote: <select name="id">
-					<c:forEach var="topic" items="${bean.topics}">
-						<option value="${topic.id}">${topic.name}</option>
-					</c:forEach>
 				</select>
-			</p>
-			<br />
-			<input type="submit" value="SelecctTopic" />
-		</c:otherwise>
+				<br />
+				<input type="submit" value="Vote" />
+	</form>
+
+	</c:when>
+	<c:otherwise>
+		<p>
+			Choose topic for vote: <select name="id">
+				<c:forEach var="topic" items="${bean.topics}">
+					<option value="${topic.id}">${topic.name}</option>
+				</c:forEach>
+			</select>
+		</p>
+		<br />
+		<input type="submit" value="SelecctTopic" />
+	</c:otherwise>
 	</c:choose>
 </body>
 </body>
