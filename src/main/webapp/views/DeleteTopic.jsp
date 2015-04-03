@@ -11,30 +11,38 @@
 	<c:set var="bean" scope="request" value="${deleteTopicBean}" />
 	<h2>Delete Topic</h2>
 	<c:choose>
-		<c:when test="${bean.authorized == true}">
-			<h5>Choose topic to delete:</h5>
-			<form method="POST" action="/JEE_ECP/jsp/DeleteTopic">
-				<input type="hidden" name="authorization" value="${bean.authorized}" />
-				<c:forEach items="${bean.Topic}" var="topic">
-					<input type="radio" name="id" value="${topic.id}" />${topic.name}
-							<br/>
-				</c:forEach>
-				<br/> <input type="submit" value="Delete" />
-			</form>
+
+		<c:when test="${deleteTopicBean.topics.size() == 0}">
+			<h2>No topics to delete</h2>
 		</c:when>
 		<c:otherwise>
 			<form method="POST" action="/JEE_ECP/jsp/DeleteTopic">
-				<label for="authorization">Authorization code:</label> <input
-					id="authorization" name="authorization" type="text"
-					value="${bean.authorized}" /> <br /> <input type="submit"
-					value="Send" />
+				<c:choose>
+					<c:when test="${not deleteTopicBean.authorized }">
+						<label for="token">Input code: </label>
+						<input id="token" name="token" type="text" />
+						<br />
+						<br />
+						<input type="submit" value="Send Token" />
+					</c:when>
+					<c:otherwise>
+						<div>${deleteTopicBean.update()}</div>
+						<p>
+							Topics: <select name="topic">
+								<c:forEach var="topic" items="${deleteTopicBean.topics}">
+									<option value="${tema.id}">${topic.name}</option>
+								</c:forEach>
+							</select>
+						</p>
+						<br />
+						<input type="submit" value="Delete topic" />
+					</c:otherwise>
+				</c:choose>
 			</form>
 		</c:otherwise>
 	</c:choose>
-
-	<br />
-	<br />
-	<a href="/JEE_ECP/jsp/Home">Back to Home</a>
+	<a href="/JEE_ECP/Home.jsp">Back to Home</a>
+	<br>
 </body>
 </body>
 </html>

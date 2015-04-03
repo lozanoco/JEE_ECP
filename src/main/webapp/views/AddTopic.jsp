@@ -19,8 +19,6 @@
 	<h2>Add Topic</h2>
 	<h5>Choose topic for vote: ${bean.topic.name}</h5>
 	<form method="POST" action="/JEE_ECP/jsp/AddTopic">
-		<label for="id">Id: </label> 
-		<input id="id" name="id" type="text" value="${bean.topic.id}" /><br /> 
 		<label for="nombre">Name: </label>
 		<input id="nombre" name="name" type="text" value="${bean.topic.name}" /><br />
 		<label for="pregunta">Question: </label>
