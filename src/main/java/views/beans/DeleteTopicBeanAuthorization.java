@@ -1,15 +1,14 @@
 package views.beans;
 
 
-public class DeleteTopicBean extends ListTopicsBean{
+public class DeleteTopicBeanAuthorization extends ListTopicsBean{
 
 	private static final long serialVersionUID = 7389408341421311664L;
 	private String token;
-	private Integer topicId;
 	private boolean authorized = false;
 
 
-	public DeleteTopicBean() {
+	public DeleteTopicBeanAuthorization() {
 	}
 
 	public String getToken() {
@@ -18,18 +17,13 @@ public class DeleteTopicBean extends ListTopicsBean{
 
 	public void setToken(String token) {
 		this.token=token;
-	}
-
-	public Integer getTopicId() {
-		return topicId;
-	}
-	public void setTopicId(int topicId) {
-		this.topicId = topicId;
-	}
+	}	
 
 	public String process() {
-			this.getControllerFactory().getDeleteTopicController().deleteTopic(topicId);
-		return "DeleteTopic";
+			if(this.getControllerFactory().getDeleteTopicController().authorize(token)){
+				return "DeleteTopic";
+			}
+			return "DeleteTopicAuthorization";		
 	}
 
 	public boolean isAuthrorized() {
@@ -44,4 +38,5 @@ public class DeleteTopicBean extends ListTopicsBean{
 		this.authorized = authorized;
 	}
 
+	
 }

@@ -10,11 +10,11 @@
 <body>
 	<c:set var="bean" scope="request" value="${deleteTopicBean}" />
 	<h2>Delete Topic</h2>
-	<div>${deleteTopicBean.update()}</div>
+	<div>${bean.update()}</div>
 	<form action="/JEE_ECP/jsp/DeleteTopic" method="post">
 		<p>Topics:</p>
-		<select name="select" id="select" >
-			<c:forEach var="topic" items="${deleteTopicBean.topics}">
+		<select name="topic" >
+			<c:forEach var="topic" items="${bean.topics}">
 				<option value="${topic.id}">${topic.name}</option>
 			</c:forEach>
 		</select>

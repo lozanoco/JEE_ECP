@@ -12,10 +12,8 @@ public abstract class ListTopicsBean extends GenericBean{
 
 	public void update(){
 		this.topics = this.getControllerFactory().getVoteController().obtainTopics();
-		dataUpdate();
 	}
 
-	public abstract void dataUpdate();
 
 	public List<Topic> getTopics() {
 		return topics;

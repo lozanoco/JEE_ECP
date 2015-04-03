@@ -14,6 +14,7 @@ import controllers.ControllerFactory;
 import controllers.ejb.ControllerEjbFactory;
 import views.beans.AddTopicBean;
 import views.beans.DeleteTopicBean;
+import views.beans.DeleteTopicBeanAuthorization;
 import views.beans.ViewVotesBean;
 import views.beans.VoteBean;
 
@@ -97,6 +98,13 @@ public class JpaServlet extends HttpServlet {
 			request.setAttribute(action, deleteTopicBean);
 			view =  PATH_ROOT_VIEW + deleteTopicBean.process() + JSP;
 			break;	
+		case "DeleteTopicAuthorization":
+			DeleteTopicBeanAuthorization deleteTopicBeanAuthorization = new DeleteTopicBeanAuthorization();
+			deleteTopicBeanAuthorization.setControllerFactory(this.controllerFactory);
+			deleteTopicBeanAuthorization.setToken(request.getParameter("token"));
+			request.setAttribute(action, deleteTopicBeanAuthorization);
+			view =  PATH_ROOT_VIEW + deleteTopicBeanAuthorization.process() + JSP;
+			break;
 			
 		default:
 			view = PATH_ROOT_VIEW;

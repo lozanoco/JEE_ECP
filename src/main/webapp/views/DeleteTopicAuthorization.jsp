@@ -10,7 +10,7 @@
 <body>
 	<c:set var="bean" scope="request" value="${deleteTopicBean}" />
 	<h2>Delete Topic</h2>
-	<form method="POST" action="/JEE_ECP/jsp/DeleteTopic">
+	<form method="POST" action="/JEE_ECP/jsp/DeleteTopicAuthorization">
 		<label for="token">Input code: </label> <input id="token" name="token"
 			type="text" /> <br /> <br /> <input type="submit"
 			value="Send Token" />
