@@ -19,9 +19,9 @@ public class ViewVotesBean extends GenericBean{
 
 	public String process() {
 		if(topic != null){
-			this.educationLevel=  this.getControllerFactory().getVoteController().getLevelEducationArray();
 			this.nVotes = this.getControllerFactory().getViewVoteController().getNVotes(topic);
 			this.average = this.getControllerFactory().getViewVoteController().getAveragePerEducationLevel(topic);
+			this.educationLevel=  this.getControllerFactory().getVoteController().getLevelEducationArray();
 		}
 		return "ViewVotes";
 	}
