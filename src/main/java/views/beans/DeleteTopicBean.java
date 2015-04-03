@@ -6,6 +6,7 @@ public class DeleteTopicBean extends GenericBean{
 
 	private String token;
 	private Integer topicId;
+	private boolean authorized;
 
 
 	public String getToken() {
@@ -26,7 +27,17 @@ public class DeleteTopicBean extends GenericBean{
 	public String process() {
 		if(token == null && topicId != null){
 			this.getControllerFactory().getDeleteTopicController().deleteTopic(topicId);
+		}else if(token != null && !token.equals("")){
+			authorized = this.getControllerFactory().getDeleteTopicController().authorize(token);
 		}
 		return token;
+	}
+	
+	public boolean isAuthrorized() {
+		return authorized;
+	}
+
+	public void setAutorizado(boolean authorized) {
+		this.authorized = authorized;
 	}
 }
